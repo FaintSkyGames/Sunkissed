@@ -5,16 +5,14 @@ using UnityEngine;
 public class Glass : MonoBehaviour
 {
     public bool inLight;
-    public GameObject LightReflection1;
-    public GameObject LightReflection2;
+    public GameObject LightReflection;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Sky"))
         {
             inLight = true;
-            LightReflection1.SetActive(true);
-            LightReflection2.SetActive(true);
+            LightReflection.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -22,8 +20,7 @@ public class Glass : MonoBehaviour
         if (collision.gameObject.CompareTag("Sky"))
         {
             inLight = false;
-            LightReflection1.SetActive(false);
-            LightReflection2.SetActive(false);
+            LightReflection.SetActive(false);
         }
     }
 }
