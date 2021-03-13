@@ -18,6 +18,9 @@ public class ObjectCarry : MonoBehaviour
    
     private void OnTriggerStay2D(Collider2D collision)
     {
+
+
+
         //Pickup Object
         if (Player.GetComponent<PlayerMovement>().Holding == false)
         {
@@ -31,12 +34,34 @@ public class ObjectCarry : MonoBehaviour
             }
         }
 
-        //Dropping Item
-        if (Player.GetComponent<PlayerMovement>().Holding == true)
+        ////Dropping Item
+        //if (Player.GetComponent<PlayerMovement>().Holding == true)
+        //{
+        //    Debug.Log("holding is true");
+        //    if ((Input.GetKey(KeyCode.S)))
+        //    {
+        //        Debug.Log("NFHDBFS");
+        //        Drop = false;
+        //        Pick = true;
+        //        this.transform.SetParent(null);
+        //        gameObject.AddComponent<Rigidbody2D>();
+        //        Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+        //        rb.mass = 100;
+        //        Player.GetComponent<PlayerMovement>().Holding = false;
+        //    }
+        //}
+
+    }
+
+
+    void Update()
+    {
+
+        if ((Input.GetKey(KeyCode.S)))
         {
-            Debug.Log("NFHDBFS");
-            if ((Input.GetKey(KeyCode.S)))
-            {
+            if (Player.GetComponent<PlayerMovement>().Holding == true)
+        {
+            
                 Debug.Log("NFHDBFS");
                 Drop = false;
                 Pick = true;
@@ -44,9 +69,11 @@ public class ObjectCarry : MonoBehaviour
                 gameObject.AddComponent<Rigidbody2D>();
                 Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
                 rb.mass = 100;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
                 Player.GetComponent<PlayerMovement>().Holding = false;
             }
         }
-
     }
+
+
 }
