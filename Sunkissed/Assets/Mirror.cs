@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class Mirror : MonoBehaviour
 {
-    public GameObject Reflection;
+    public List<GameObject> Reflections;
 
-    private void Start()
+    public void Reflection(int value)
     {
-        Reflection.SetActive(false);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Reflection"))
+        if(value == 1)
         {
-            Reflection.SetActive(true);
+            Reflections[0].SetActive(true);
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Reflection"))
+        else if (value == 2)
         {
-            Reflection.SetActive(false);
+            Reflections[1].SetActive(true);
+        }
+        else if (value == 3)
+        {
+            Reflections[2].SetActive(true);
+        }
+        else if (value == 4)
+        {
+            Reflections[3].SetActive(true);
+        }
+        else
+        {
+            for(int i = 0; i < Reflections.Count; i++)
+            {
+                Reflections[i].SetActive(false);
+            }
         }
     }
 }
