@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Geri.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: 74c752f992d177f498e8567dbe3d74f4
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: fba0e867e77e7e94e8f4b106269361cf
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: b62bd97632e1e7f4ab26babf9c74eaac
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 54ff614ba9abe7749abda43ea85c03af
   m_configObjects: {}
