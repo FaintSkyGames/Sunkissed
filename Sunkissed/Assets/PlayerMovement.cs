@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
-    bool isGrounded = false;
+    public bool isGrounded = false;
     public Transform isGroundedChecker;
     public float checkGroundRadius;
     public LayerMask groundLayer;
