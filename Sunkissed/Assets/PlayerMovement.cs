@@ -16,10 +16,16 @@ public class PlayerMovement : MonoBehaviour
     public float checkGroundRadius;
     public LayerMask groundLayer;
 
+    bool PickedItem = false;
+    public Transform ObjectChecker;
+    public LayerMask ObjectLayer;
+
     public GameObject Sprite;
 
     public float rememberGroundedFor;
     float lastTimeGrounded;
+
+    public bool Holding = false;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         FlyingMovement();
         CheckGrounded();
         PlayerRotation();
-        Debug.Log(rb.velocity);
+        //Debug.Log(rb.velocity);
     }
 
     void KeyboardInput()
