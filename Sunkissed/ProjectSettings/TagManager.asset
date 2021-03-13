@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Ground
   - Sky
   - Glass
+
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
