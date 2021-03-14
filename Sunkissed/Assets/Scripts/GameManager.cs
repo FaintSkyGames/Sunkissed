@@ -35,22 +35,6 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(LoadScene(6));
     }
-    public void LoadLevel7()
-    {
-        StartCoroutine(LoadScene(7));
-    }
-    public void LoadLevel8()
-    {
-        StartCoroutine(LoadScene(8));
-    }
-    public void LoadLevel9()
-    {
-        StartCoroutine(LoadScene(9));
-    }
-    public void LoadLevel10()
-    {
-        StartCoroutine(LoadScene(10));
-    }
 
     public void LoadNextScene()
     {
@@ -58,7 +42,7 @@ public class GameManager : MonoBehaviour
         LoadScene(scenenum + 1);
     }
 
-    IEnumerator LoadScene(int value)
+    public IEnumerator LoadScene(int value)
     {
         SceneTrans.SetTrigger("NextScene");
         yield return new WaitForSeconds(1);
