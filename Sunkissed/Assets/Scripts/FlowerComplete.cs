@@ -38,11 +38,13 @@ public class FlowerComplete : MonoBehaviour
 
         if(next > 5)
         {
+
             gameManager.StartCoroutine(gameManager.LoadScene(1));
         }
         else
         {
-            gameManager.StartCoroutine(gameManager.LoadScene(SceneID));
+
+            gameManager.StartCoroutine(gameManager.LoadScene(SceneID+1));
         }   
     }
 }
