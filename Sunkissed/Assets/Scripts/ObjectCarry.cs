@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectCarry : MonoBehaviour
 {
     public GameObject Player;
+    private bool held;
     public GameObject ToGoObject;
     public GameObject ToGoObject2;
     public bool Pick = true;
@@ -26,6 +27,7 @@ public class ObjectCarry : MonoBehaviour
         {
             if (Pick && (Input.GetKey(KeyCode.W)))
             {
+                held = true;
                 Pick = false;
                 Drop = true;
                 this.transform.SetParent(ToGoObject.transform);
@@ -61,16 +63,20 @@ public class ObjectCarry : MonoBehaviour
         {
             if (Player.GetComponent<PlayerMovement>().Holding == true)
         {
-            
-                Debug.Log("NFHDBFS");
-                Drop = false;
-                Pick = true;
-                this.transform.SetParent(null);
-                gameObject.AddComponent<Rigidbody2D>();
-                Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
-                rb.mass = 100;
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                Player.GetComponent<PlayerMovement>().Holding = false;
+                if (held == true)
+                {
+
+                    Debug.Log("NFHDBFS");
+                    Drop = false;
+                    Pick = true;
+                    held = false;
+                    this.transform.SetParent(null);
+                    gameObject.AddComponent<Rigidbody2D>();
+                    Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
+                    rb.mass = 100;
+                    rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    Player.GetComponent<PlayerMovement>().Holding = false;
+                }
             }
         }
     }
