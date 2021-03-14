@@ -11,14 +11,19 @@ public class FlowerComplete : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        
+        SceneID = SceneManager.GetActiveScene().buildIndex;
     }
 
     // Update is called once per frame
     void hitByLight()
     {
         print("LEVEL COMPLETE!");
+<<<<<<< Updated upstream
 
         SceneID = SceneManager.GetActiveScene().buildIndex + 1;
+=======
+>>>>>>> Stashed changes
         StartCoroutine(FlowerGrow());
     }
 
@@ -27,13 +32,13 @@ public class FlowerComplete : MonoBehaviour
         yield return new WaitForSeconds(TimeBeforeNextScene);
         int next = SceneID + 1;
 
-        if(next > 5)
+        if(next < 6)
         {
-            gameManager.StartCoroutine(gameManager.LoadScene(1));
+            gameManager.StartCoroutine(gameManager.LoadScene(next));
         }
         else
         {
-            gameManager.StartCoroutine(gameManager.LoadScene(SceneID));
+            gameManager.StartCoroutine(gameManager.LoadScene(0));
         }   
     }
 }

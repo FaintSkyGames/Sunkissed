@@ -1880,6 +1880,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1574545130}
     m_Modifications:
+    - target: {fileID: 16188924, guid: 5448106222cbd274eba2b25fea26171d, type: 3}
+      propertyPath: TimeBeforeNextScene
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4288802961263721632, guid: 5448106222cbd274eba2b25fea26171d, type: 3}
       propertyPath: m_Name
       value: Flower
