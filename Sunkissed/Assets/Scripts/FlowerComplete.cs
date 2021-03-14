@@ -7,6 +7,12 @@ public class FlowerComplete : MonoBehaviour
     public int TimeBeforeNextScene;
     public int SceneID;
     private GameManager gameManager;
+
+    [SerializeField]
+    private Sprite completeSprite;
+    [SerializeField]
+    private SpriteRenderer render;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +23,9 @@ public class FlowerComplete : MonoBehaviour
     void hitByLight()
     {
         print("LEVEL COMPLETE!");
+
+        // Bloom flower
+        render.sprite = completeSprite;
 
         SceneID = SceneManager.GetActiveScene().buildIndex;
         StartCoroutine(FlowerGrow());
