@@ -40,6 +40,7 @@ public class Glass : MonoBehaviour
                 if (hit.transform != null)
                     if (hit.transform.tag == "Reflection")
                     {
+
                         hit.transform.SendMessage("upLight");
                     }
                 else if (hit.transform.tag == "Flow")
@@ -56,6 +57,7 @@ public class Glass : MonoBehaviour
                 if (hit.transform != null)
                     if (hit.transform.tag == "Reflection")
                     {
+
                         hit.transform.SendMessage("downLight");
                     }
                     else if (hit.transform.tag == "Flow")
@@ -72,6 +74,7 @@ public class Glass : MonoBehaviour
                 if (hit.transform != null)
                     if (hit.transform.tag == "Reflection")
                     {
+
                         hit.transform.SendMessage("leftLight");
                     }
                     else if (hit.transform.tag == "Flow")
@@ -88,6 +91,7 @@ public class Glass : MonoBehaviour
                 if (hit.transform != null)
                     if (hit.transform.tag == "Reflection")
                     {
+
                         hit.transform.SendMessage("rightLight");
                     }
                     else if (hit.transform.tag == "Flow")
