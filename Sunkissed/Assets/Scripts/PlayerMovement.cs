@@ -11,16 +11,19 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
 
-    public bool isGrounded = false;
+    public bool isGrounded;
     public Transform isGroundedChecker;
     public float checkGroundRadius;
     public LayerMask groundLayer;
-
+    bool buzzPlaying;
     bool PickedItem = false;
     public Transform ObjectChecker;
     public LayerMask ObjectLayer;
 
     public GameObject Sprite;
+
+
+    public AudioSource buzz;
 
     public float rememberGroundedFor;
     float lastTimeGrounded;
@@ -41,6 +44,27 @@ public class PlayerMovement : MonoBehaviour
         CheckGrounded();
         PlayerRotation();
         //Debug.Log(rb.velocity);
+
+
+        if (isGrounded == false)
+        {
+            if(buzzPlaying == false)
+            {
+                StartCoroutine(fadeIn(buzz));
+                buzzPlaying = true;
+            }           
+        }
+
+
+        if (isGrounded == true)
+        {
+            if (buzzPlaying == true)
+            {
+                StartCoroutine(fadeOut(buzz));
+                buzzPlaying = false;
+            }
+            
+        }
     }
 
     void KeyboardInput()
@@ -86,6 +110,45 @@ public class PlayerMovement : MonoBehaviour
             }
             isGrounded = false;
         }
+    }
+
+
+
+    static IEnumerator fadeIn(AudioSource audioSource)
+    {
+
+        print("Start fade");
+        float currentTime = 0;
+        float start = audioSource.volume;
+        float duration = 1;
+        audioSource.Play();
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, 0.2f, currentTime / duration);
+            yield return null;
+        }
+        
+        yield break;
+    }
+
+
+    static IEnumerator fadeOut(AudioSource audioSource)
+    {
+
+        print("Start fade");
+        float currentTime = 0;
+        float start = audioSource.volume;
+        float duration = 2;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            audioSource.volume = Mathf.Lerp(start, 0, currentTime / duration);
+            yield return null;
+        }
+        audioSource.Pause();
+        yield break;
     }
 
     void PlayerRotation()
