@@ -18,7 +18,7 @@ public class FlowerComplete : MonoBehaviour
     {
         print("LEVEL COMPLETE!");
 
-        SceneID = SceneManager.GetActiveScene().buildIndex;
+        SceneID = SceneManager.GetActiveScene().buildIndex + 1;
         StartCoroutine(FlowerGrow());
     }
 
