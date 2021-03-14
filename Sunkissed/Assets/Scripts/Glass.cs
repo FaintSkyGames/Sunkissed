@@ -18,6 +18,8 @@ public class Glass : MonoBehaviour
 
     void Update()
     {
+        Physics2D.queriesStartInColliders = false;
+
         
 
         if (Up == true)
@@ -25,37 +27,61 @@ public class Glass : MonoBehaviour
             hit = Physics2D.Raycast(transform.position, Vector2.up, Mathf.Infinity);
 
             Debug.DrawRay(transform.position, Vector2.up, Color.red, 10f);
+
+            if (hit.transform != null)
+                if (hit.transform.tag == "Reflection")
+            {
+                latestRef = hit.transform;
+                hit.transform.SendMessage("upLight");
+            }
         }
         if (Down == true)
         {
             hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity);
 
             Debug.DrawRay(transform.position, Vector2.down, Color.red, 10f);
+
+            if (hit.transform != null)
+                if (hit.transform.tag == "Reflection")
+            {
+                latestRef = hit.transform;
+                hit.transform.SendMessage("downLight");
+            }
         }
         if (Left == true)
         {
             hit = Physics2D.Raycast(transform.position, Vector2.left, Mathf.Infinity);
 
             Debug.DrawRay(transform.position, Vector2.left, Color.red, 10f);
+
+            if (hit.transform != null)
+                if (hit.transform.tag == "Reflection")
+            {
+                latestRef = hit.transform;
+                hit.transform.SendMessage("leftLight");
+            }
         }
         if (Right == true)
         {
             hit = Physics2D.Raycast(transform.position, Vector2.right, Mathf.Infinity);
 
             Debug.DrawRay(transform.position, Vector2.right, Color.red, 10f);
+
+            if (hit.transform != null)
+                if (hit.transform.tag == "Reflection")
+            {
+                latestRef = hit.transform;
+                hit.transform.SendMessage("rightLight");
+            }
         }
 
 
-        if (hit.transform.tag == "Reflection")
-        {
-            latestRef = hit.transform;
-            hit.transform.SendMessage("hitByLight");
-        }
+        
 
-        if (hit.transform.tag != "Reflection" && latestRef != null)
-        {
-            latestRef.SendMessage("noHit");
-        }
+        //if (hit.transform.tag != "Reflection" && latestRef != null)
+        //{
+        //    latestRef.SendMessage("noHit");
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

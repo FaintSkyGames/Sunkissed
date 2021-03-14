@@ -10,14 +10,26 @@ public class MirrorDetection : MonoBehaviour
         
     }
 
-    void hitByLight()
+    void up()
     {
-        transform.parent.SendMessage("hitByLight", gameObject.name);
+        transform.parent.SendMessage("up");
+    }
+    void down()
+    {
+        transform.parent.SendMessage("down");
+    }
+    void left()
+    {
+        transform.parent.SendMessage("left");
+    }
+    void right()
+    {
+        transform.parent.SendMessage("right");
     }
 
-    void noHit()
-    {
-        transform.parent.SendMessage("noHit", gameObject.name);
-    }
+    //void noHit()
+    //{
+    //    transform.parent.SendMessage("noHit", gameObject.name);
+    //}
 
 }
